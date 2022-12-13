@@ -111,16 +111,19 @@ class _FeaturesModalValidationState extends State<FeaturesModalValidation> {
               child: Row(
                 children: <Widget>[
                   const Spacer(),
-                  FlatButton(
+                  ElevatedButton(
                     child: const Text('Cancel'),
                     onPressed: () => state.closeModal(confirmed: false),
                   ),
                   const SizedBox(width: 5),
-                  FlatButton.icon(
+                  ElevatedButton.icon(
                     icon: Icon(Icons.check),
                     label: Text('OK (${state.changes.length})'),
-                    color: Colors.blue,
-                    textColor: Colors.white,
+                    style: ButtonStyle(
+                      foregroundColor: MaterialStateProperty.all(Colors.blue),
+                      textStyle: MaterialStateProperty.all(
+                          TextStyle(color: Colors.white)),
+                    ),
                     onPressed: state.changes.valid
                       ? () => state.closeModal(confirmed: true)
                       : null,

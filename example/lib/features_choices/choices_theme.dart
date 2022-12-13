@@ -102,7 +102,7 @@ class _FeaturesChoicesThemeState extends State<FeaturesChoicesTheme> {
             activeColor: Colors.white,
           ),
           modalConfirmBuilder: (context, state) {
-            return FlatButton(
+            return ElevatedButton(
               onPressed: () => state.closeModal(confirmed: true),
               child: const Text(
                 'Change',
